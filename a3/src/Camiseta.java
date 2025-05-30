@@ -7,7 +7,6 @@ public class Camiseta {
     private double preco;
     private double desconto;
     private String tamanho;
-    List<Camiseta> catalogo = new ArrayList<>();
 
     public Camiseta(String nome, double preco, double desconto, String tamanho) {
         this.nome = nome;
@@ -16,15 +15,39 @@ public class Camiseta {
         this.tamanho = tamanho;
     }
 
-    {
-        catalogo.add(new Camiseta("Camiseta Yamal", 129.0, 0.10, "P"));
-        catalogo.add(new Camiseta("Camiseta Messi", 129.0, 0.15, "M"));
-        catalogo.add(new Camiseta("Camiseta CR7", 119.0, 0.05, "M"));
-        catalogo.add(new Camiseta("Camiseta Neymar", 109.0, 0.20, "G"));
-        catalogo.add(new Camiseta("Camiseta R9", 109.0, 0.10, "GG"));
-        catalogo.add(new Camiseta("Camiseta R10", 109.0, 0.15, "G"));
-        catalogo.add(new Camiseta("Camiseta Kaká", 89.0, 0.05, "P"));
-        catalogo.add(new Camiseta("Camiseta Mbappé", 99.0, 0.20, "M"));
+    public String getNome() {
+        return nome;
     }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
+
+    public double getDesconto() {
+        return desconto;
+    }
+
+    public void setDesconto(double desconto) {
+        this.desconto = desconto;
+    }
+
+    public String getTamanho() {
+        return tamanho;
+    }
+
+    public void setTamanho(String tamanho) {
+        this.tamanho = tamanho;
+    }
+
+
+
     //criar metodo mostrarCatalogo e e mostrar todas as camisetas do arraylist via for no testeLoja
 }
