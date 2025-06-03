@@ -1,12 +1,8 @@
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class LojaMetodos {
-    private List<Cliente> listaClientes = new ArrayList<>();
     private Scanner leitor = new Scanner(System.in);
-    private List<Camiseta> catalogo = new ArrayList<>();
-
 
     public void exibirMenuInicial() {
 
@@ -18,12 +14,14 @@ public class LojaMetodos {
         int opcao = leitor.nextInt();
         leitor.nextLine();
 
+        ClienteMetodos cliente = new ClienteMetodos();
+
         switch (opcao) {
             case 1:
-                cadastrarCliente();
+                cliente.cadastrarCliente();
                 break;
             case 2:
-                efetuarLogin();
+                cliente.efetuarLogin();
                 break;
             case 3:
                 System.out.println("Poxa já vai? Esperamos por você outra hora...");
@@ -34,65 +32,11 @@ public class LojaMetodos {
         }
     }
 
-    public void cadastrarCliente() {
-        System.out.println("Faça seu cadastro completando os dados abaixo: \n");
-        System.out.print("Nome completo: ");
-        String nome = leitor.nextLine();
-        System.out.print("Telefone: ");
-        String telefone = leitor.nextLine();
-        System.out.print("E-mail: ");
-        String email = leitor.nextLine();
-        System.out.print("Senha: ");
-        String senha = leitor.nextLine();
-        System.out.print("CPF ou CNPJ: ");
-        String cpfCnpj = leitor.nextLine();
-        System.out.print("Endereço para entrega: ");
-        String endereco = leitor.nextLine();
-
-        Cliente novoCliente = new Cliente(nome, telefone, email,senha, cpfCnpj, endereco);
-        listaClientes.add(novoCliente);
-        System.out.println("Cadastro realizado com sucesso!");
-        exibirMenuInicial();
-    }
-
-    public void efetuarLogin() {
-        System.out.print("Digite seu e-mail: ");
-        String emailLogin = leitor.nextLine();
-
-        System.out.print("Digite sua senha: ");
-        String senhaLogin = leitor.nextLine();
-
-        boolean loginSucesso = false;
-
-        for (Cliente cliente : listaClientes) {
-            if (senhaLogin.equals(cliente.getSenha()) && emailLogin.equals(cliente.getEmail())) {
-                System.out.println("Sejá bem-vindo o nosso site de camisetas personalisadas, " + cliente.getNome() + "! \n");
-                loginSucesso = true;
-                iniciarLoja();
-                break;
-            }
-        }
-
-        if (!loginSucesso) {
-            System.out.println("Email ou senha incorretos. Tente novamente.");
-            exibirMenuInicial();
-        }
-    }
-
-
-    public void catalogoCamisetas() {
-            catalogo.add(new Camiseta("Camiseta Yamal", 129.0, 0.10, "P"));
-            catalogo.add(new Camiseta("Camiseta Messi", 129.0, 0.15, "M"));
-            catalogo.add(new Camiseta("Camiseta CR7", 119.0, 0.05, "M"));
-            catalogo.add(new Camiseta("Camiseta Neymar", 109.0, 0.20, "G"));
-            catalogo.add(new Camiseta("Camiseta R9", 109.0, 0.10, "GG"));
-            catalogo.add(new Camiseta("Camiseta R10", 109.0, 0.15, "G"));
-            catalogo.add(new Camiseta("Camiseta Kaká", 89.0, 0.05, "P"));
-            catalogo.add(new Camiseta("Camiseta Mbappé", 99.0, 0.20, "M"));
-    }
-
     public void iniciarLoja() {
-        catalogoCamisetas();
+
+        CamisetaMetodos metodos = new CamisetaMetodos();
+        metodos.catalogoCamisetas();
+        List<Camiseta> catalogo = metodos.getCatalogo();
 
         System.out.println("Catálogo de camisetas disponíveis:");
 
