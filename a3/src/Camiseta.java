@@ -47,7 +47,5 @@ public class Camiseta {
         this.tamanho = tamanho;
     }
 
-
-
     //criar metodo mostrarCatalogo e e mostrar todas as camisetas do arraylist via for no testeLoja
 }

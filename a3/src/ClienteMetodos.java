@@ -40,21 +40,11 @@ public class ClienteMetodos {
         System.out.print("Digite sua senha: ");
         String senhaLogin = leitor.nextLine();
 
-        boolean loginSucesso = false;
-
         for (Usuario cliente : listaClientes) {
             if (senhaLogin.equals(cliente.getSenha()) && emailLogin.equals(cliente.getEmail())) {
-                if (emailLogin.equals("admin@loja.com") && senhaLogin.equals("123adm")) {
-                    System.out.println("Olá Administrador!");
-                    // abrir painel admin
-                } else {
-                    System.out.println("Sejá bem-vindo o nosso site de camisetas personalisadas, " + cliente.getNome() + "! \n");
-                    new LojaMetodos().iniciarLoja();
-                }
-                loginSucesso = true;
-                break;
-                }
-                if (!loginSucesso) {
+                System.out.println("Seja bem-vindo ao nosso site de camisetas personalizadas, " + cliente.getNome() + "! \n");
+                new LojaMetodos().iniciarLoja();
+            }else {
                     System.out.println("Email ou senha incorretos. Tente novamente.");
                     new LojaMetodos().exibirMenuInicial();
             }

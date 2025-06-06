@@ -23,5 +23,4 @@ public class CamisetaMetodos {
         catalogo.add(new Camiseta("Camiseta Kaká", 89.0, 0.05, "P"));
         catalogo.add(new Camiseta("Camiseta Mbappé", 99.0, 0.20, "M"));
     }
-
 }
