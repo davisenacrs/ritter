@@ -3,16 +3,26 @@ import java.util.List;
 
 public class Camiseta {
 
+    private int id;
     private String nome;
     private double preco;
     private double desconto;
     private String tamanho;
 
-    public Camiseta(String nome, double preco, double desconto, String tamanho) {
+    public Camiseta(int id, String nome, double preco, double desconto, String tamanho) {
+        this.id = id;
         this.nome = nome;
         this.preco = preco;
         this.desconto = desconto;
         this.tamanho = tamanho;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {

@@ -64,4 +64,7 @@ public class Usuario {
         this.endereco = endereco;
     }
 
+    public boolean verificaLogin(String email, String senha) {
+        return this.email.equals(email) && this.senha.equals(senha);
+    }
 }
