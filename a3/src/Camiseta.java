@@ -9,12 +9,12 @@ public class Camiseta {
     private double desconto;
     private String tamanho;
 
-    public Camiseta(int id, String nome, double preco, double desconto, String tamanho) {
+    public Camiseta(int id, String nome, double preco, double desconto) {
         this.id = id;
         this.nome = nome;
         this.preco = preco;
         this.desconto = desconto;
-        this.tamanho = tamanho;
+        this.tamanho = "";
     }
 
     public int getId() {

@@ -1,6 +1,6 @@
 public abstract class Pagamento {
 
-    public String status; //mudar nome para status
+    public String status;
 
     public abstract String getTipo();
 

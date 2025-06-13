@@ -11,7 +11,7 @@ public class PedidoMetodos {
     CamisetaMetodos camisetaMetodos = new CamisetaMetodos();
     //delcaração do objeto acima
 
-    public void adicionarCamiseta (){
+    public void adicionarAoCarrinho(){
         List<Camiseta> catalogo = camisetaMetodos.getCatalogo();
 
         System.out.println("Catálogo de camisetas disponíveis:");
@@ -63,7 +63,7 @@ public class PedidoMetodos {
                     c.getNome(), c.getTamanho(), c.getPreco());
         }
         try {
-            Thread.sleep(3000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

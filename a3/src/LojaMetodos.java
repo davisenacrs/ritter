@@ -5,9 +5,9 @@ public class LojaMetodos {
     private Scanner leitor = new Scanner(System.in);
     CamisetaMetodos camisetaMetodos = new CamisetaMetodos();
     PedidoMetodos pedidoMetodos = new PedidoMetodos();
-    ClienteMetodos clienteMetodos = new ClienteMetodos();
+    UsuarioMetodos clienteMetodos = new UsuarioMetodos();
 
-    public void exibirMenuInicial() {
+    public void exibirMenuCliente() {
 
         while (true){
         System.out.println("\nMenu:");
@@ -37,10 +37,10 @@ public class LojaMetodos {
             }
         }
     }
-    public void iniciarLoja() {
 
+
+    public void iniciarLoja() {
         while (true) {
-            camisetaMetodos.catalogoCamisetas();
             List<Camiseta> catalogo = camisetaMetodos.getCatalogo();
 
             System.out.println("Catálogo de camisetas disponíveis:");
@@ -62,7 +62,7 @@ public class LojaMetodos {
 
             switch (opcao) {
                 case 1:
-                    pedidoMetodos.adicionarCamiseta();
+                    pedidoMetodos.adicionarAoCarrinho();
                     break;
                 case 2:
                     pedidoMetodos.vizualizarCarrinho();
