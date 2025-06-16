@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class UsuarioMetodos {
 
     private static List<Usuario> listaClientes = new ArrayList<>();
-    public static Usuario usuarioLogado = null; // Agora é static
+    public static Usuario usuarioLogado = null;
     Scanner leitor = new Scanner(System.in);
     CamisetaMetodos camisetaMetodos = new CamisetaMetodos();
 
@@ -18,7 +18,7 @@ public class UsuarioMetodos {
     }
 
     public UsuarioMetodos() {
-        Usuario admin = new Usuario("Conta ADM", 31320696, "adm@loja.com", "adm321", 00000000000, "Sistema");
+        Usuario admin = new Usuario("Conta ADM", "31320696", "adm@loja.com", "adm321", "00000000000", "Sistema");
         listaClientes.add(admin);
     }
 
@@ -29,7 +29,7 @@ public class UsuarioMetodos {
         String nome = leitor.nextLine();
 
         System.out.print("Telefone: ");
-        int telefone = Integer.parseInt(leitor.nextLine());
+        String telefone = leitor.nextLine();
 
         System.out.print("E-mail: ");
         String email = leitor.nextLine();
@@ -38,7 +38,7 @@ public class UsuarioMetodos {
         String senha = leitor.nextLine();
 
         System.out.print("CPF ou CNPJ: ");
-        int cpfCnpj = Integer.parseInt(leitor.nextLine());
+        String cpfCnpj = leitor.nextLine();
 
         System.out.print("Endereço para entrega: ");
         String endereco = leitor.nextLine();
@@ -65,7 +65,6 @@ public class UsuarioMetodos {
         for (Usuario cliente : listaClientes) {
             if (senhaLogin.equals(cliente.getSenha()) && emailLogin.equals(cliente.getEmail())) {
                 usuarioLogado = cliente;
-
                 try {
                     Thread.sleep(2000);
                 } catch (InterruptedException e) {
@@ -110,9 +109,9 @@ public class UsuarioMetodos {
 
                     System.out.println("Catálogo de camisetas disponíveis:");
 
-                    for (int i = 0; i < catalogo.size(); i++) {
-                        Camiseta c = catalogo.get(i);
-                        System.out.printf("%d - %s | Preço: R$%.2f | Desconto: %.0f%% | Tamanho: %s%n", i + 1, c.getNome(), c.getPreco(), c.getDesconto() * 100, c.getTamanho());
+                    for (Camiseta camiseta : catalogo) {
+                        System.out.printf("%d - Nome: %s | Preço: R$%.2f | Desconto: %.0f%%\n",
+                                camiseta.getId(), camiseta.getNome(), camiseta.getPreco(), camiseta.getDesconto() * 100);
                     }
                     break;
                 case 2:
@@ -148,7 +147,7 @@ public class UsuarioMetodos {
         String nome = leitor.nextLine();
 
         System.out.print("Novo telefone: ");
-        int telefone = leitor.nextInt();
+        String telefone = leitor.nextLine();
 
         System.out.print("Novo endereço: ");
         String endereco = leitor.nextLine();
@@ -157,7 +156,7 @@ public class UsuarioMetodos {
         usuarioLogado.setTelefone(telefone);
         usuarioLogado.setEndereco(endereco);
 
-        System.out.println("Perfil atualizado com sucesso!");
+        System.out.println("Perfil atualizado com sucesso!\n");
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {

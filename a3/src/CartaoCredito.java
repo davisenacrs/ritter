@@ -1,5 +1,4 @@
 public class CartaoCredito extends Pagamento {
-
     private int numParcelas;
 
     public CartaoCredito(int numParcelas) {
@@ -7,8 +6,9 @@ public class CartaoCredito extends Pagamento {
         this.status = "Pendente";
     }
 
+    @Override
     public String getTipo() {
-        return "Boleto";
+        return "Cartão de Crédito";
     }
 
     public int getNumParcelas() {
@@ -16,15 +16,18 @@ public class CartaoCredito extends Pagamento {
     }
 
     public void calculaParcelas(double valorTotal) {
-        System.out.println("Calculando todos os valores da parcela: ");
         double valorParcela = valorTotal / numParcelas;
-        System.out.printf("%d x R$ %.2f = R$ %.2f%n", numParcelas, valorParcela, valorTotal);
-
-        System.out.println("Processando pagamento...");
-        //colocar sleep aqui
-        this.status = "Quitado";
-
+        System.out.println("Parcelamento escolhido:");
+        for (int i = 1; i <= numParcelas; i++) {
+            System.out.printf("Parcela %d: R$ %.2f\n", i, valorParcela);
+        }
+        System.out.println("\nProcessando pagamento...");
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        this.status = "Pendente";
         System.out.println("Status atualizado para: " + this.status);
     }
-    //criar metodo calculaParcelas (mostrar para o cliente as opcoes de qnts parcelas e clacular a divisao a depender do valor da peça
 }

@@ -5,21 +5,16 @@ import java.util.Scanner;
 public class CamisetaMetodos {
 
     Scanner leitor = new Scanner(System.in);
-    private List<Camiseta> catalogo = new ArrayList<>();
-
-
-    public CamisetaMetodos() {
-        if (catalogo.isEmpty()) {
-            catalogoCamisetas();
-        }
-    }
+    public List<Camiseta> catalogo = new ArrayList<>();
 
     public List<Camiseta> getCatalogo() {
         return catalogo;
     }
 
-    public void setCatalogo(List<Camiseta> catalogo) {
-        this.catalogo = catalogo;
+    public CamisetaMetodos() {
+        if (catalogo.isEmpty()) {
+            catalogoCamisetas();
+        }
     }
 
     public void catalogoCamisetas() {
@@ -55,9 +50,9 @@ public class CamisetaMetodos {
 
     public void removerCamiseta() {
         System.out.println("\nCatálogo de camisetas disponíveis:");
-        for (Camiseta c : catalogo) {
-            System.out.printf("ID %d - %s | Preço: R$%.2f | Desconto: %.0f%% | Tamanho: %s%n",
-                    c.getId(), c.getNome(), c.getPreco(), c.getDesconto() * 100, c.getTamanho());
+        for (Camiseta camiseta : catalogo) {
+            System.out.printf("%d - Nome: %s | Preço: R$%.2f | Desconto: %.0f%%\n",
+                    camiseta.getId(), camiseta.getNome(), camiseta.getPreco(), camiseta.getDesconto() * 100);
         }
 
         System.out.print("\nDigite o Numero(ID) da camiseta que deseja remover: ");
@@ -81,32 +76,28 @@ public class CamisetaMetodos {
 
     public void editarCamiseta() {
         System.out.println("\nCatálogo de camisetas disponíveis:");
-        for (Camiseta c : catalogo) {
-            System.out.printf("%d - %s | Preço: R$%.2f | Desconto: %.0f%% | Tamanho: %s%n",
-                    c.getId(), c.getNome(), c.getPreco(), c.getDesconto() * 100, c.getTamanho());
+        for (Camiseta camiseta : catalogo) {
+            System.out.printf("%d - Nome: %s | Preço: R$%.2f | Desconto: %.0f%%\n",
+                    camiseta.getId(), camiseta.getNome(), camiseta.getPreco(), camiseta.getDesconto() * 100);
         }
 
         System.out.print("\nDigite o numero (ID) da camiseta que deseja editar: ");
         int id = Integer.parseInt(leitor.nextLine());
 
-        for (Camiseta c : catalogo) {
-            if (c.getId() == id) {
-                System.out.print("Novo nome (" + c.getNome() + "): ");
+        for (Camiseta camiseta : catalogo) {
+            if (camiseta.getId() == id) {
+                System.out.print("Novo nome (" + camiseta.getNome() + "): ");
                 String nome = leitor.nextLine();
 
-                System.out.print("Novo preço (" + c.getPreco() + "): ");
+                System.out.print("Novo preço (" + camiseta.getPreco() + "): ");
                 double preco = Double.parseDouble(leitor.nextLine());
 
-                System.out.print("Novo desconto (" + c.getDesconto() + "): ");
+                System.out.print("Novo desconto (" + camiseta.getDesconto() + "): ");
                 double desconto = Double.parseDouble(leitor.nextLine());
 
-                System.out.print("Novo tamanho (" + c.getTamanho() + "): ");
-                String tamanho = leitor.nextLine();
-
-                c.setNome(nome);
-                c.setPreco(preco);
-                c.setDesconto(desconto);
-                c.setTamanho(tamanho);
+                camiseta.setNome(nome);
+                camiseta.setPreco(preco);
+                camiseta.setDesconto(desconto);
 
                 System.out.println("Camiseta editada com sucesso!");
                 return;

@@ -1,36 +1,30 @@
-public class Boleto extends Pagamento{
+public class Boleto extends Pagamento {
+    private String dataVencimento;
+    private String dataPagamento;
 
-    private int dataVencimento;
-    private int dataPagamento; //talvez transorme para date vá aprender!!!
-
-    public Boleto(int dataVencimento, int dataPagamento) {
+    public Boleto(String dataVencimento, String dataPagamento) {
         this.dataVencimento = dataVencimento;
         this.dataPagamento = dataPagamento;
-        this.status = "Pendente";
     }
 
+    @Override
     public String getTipo() {
         return "Boleto";
     }
 
-    public int getDataVencimento() {
+    public String getDataVencimento() {
         return dataVencimento;
     }
 
-    public void setDataVencimento(int dataVencimento) {
+    public void setDataVencimento(String dataVencimento) {
         this.dataVencimento = dataVencimento;
     }
 
-    public int getDataPagamento() {
+    public String getDataPagamento() {
         return dataPagamento;
     }
 
-    public void setDataPagamento(int dataPagamento) {
+    public void setDataPagamento(String dataPagamento) {
         this.dataPagamento = dataPagamento;
     }
-
-    private static void gerarBoleto(){
-
-    }
-
 }

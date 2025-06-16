@@ -45,9 +45,9 @@ public class LojaMetodos {
 
             System.out.println("Catálogo de camisetas disponíveis:");
 
-            for (int i = 0; i < catalogo.size(); i++) {
-                Camiseta c = catalogo.get(i);
-                System.out.printf("%d - %s | Preço: R$%.2f | Desconto: %.0f%% | Tamanho: %s%n", i + 1, c.getNome(), c.getPreco(), c.getDesconto() * 100, c.getTamanho());
+            for (Camiseta camiseta : catalogo) {
+                System.out.printf("%d - Nome: %s | Preço: R$%.2f | Desconto: %.0f%%\n",
+                        camiseta.getId(), camiseta.getNome(), camiseta.getPreco(), camiseta.getDesconto() * 100);
             }
 
             System.out.println("\nEscolha uma opção abaixo: ");

@@ -1,15 +1,13 @@
 public class Usuario {
 
     private String nome;
-    private int telefone;
+    private String telefone;
     private String email;
     private String senha;
-    private int cpfCnpj;
+    private String cpfCnpj;
     private String endereco;
-    private String emailAdm;
-    private String senhaAdm;
 
-    public Usuario(String nome, int telefone, String email, String senha, int cpfCnpj, String endereco) {
+    public Usuario(String nome, String telefone, String email, String senha, String cpfCnpj, String endereco) {
         this.nome = nome;
         this.telefone = telefone;
         this.email = email;
@@ -26,11 +24,11 @@ public class Usuario {
         this.nome = nome;
     }
 
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
@@ -50,11 +48,11 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public int getCpfCnpj() {
+    public String getCpfCnpj() {
         return cpfCnpj;
     }
 
-    public void setCpfCnpj(int cpfCnpj) {
+    public void setCpfCnpj(String cpfCnpj) {
         this.cpfCnpj = cpfCnpj;
     }
 
@@ -65,5 +63,4 @@ public class Usuario {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
-
 }
